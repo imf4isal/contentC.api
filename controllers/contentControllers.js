@@ -16,9 +16,7 @@ exports.getAllContents = (req, res) => {
 
 exports.getContent = (req, res) => {
     const id = req.params.id * 1;
-
     const content = contents.find((c) => c.id === id);
-    console.log(content);
 
     res.status(200).json({
         status: 'success',
