@@ -1,0 +1,184 @@
+[
+    {
+        "title": "Effective Time Management Techniques",
+        "about": "Learn practical strategies to improve your time management skills and boost productivity.",
+        "url": "https://example.com/time-management",
+        "sharedBy": "user1",
+        "categories": ["productivity", "self improvement"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-15T09:00:00Z",
+        "rating": 4.5,
+        "ratingQuantity": 12,
+        "bookmarkedCount": 8,
+        "commentsQuantity": 3,
+        "comments": [
+            {
+                "user": "user2",
+                "timestamp": "2023-05-15T09:30:00Z",
+                "reactionCount": 1,
+                "replies": [
+                    {
+                        "user": "user3",
+                        "timestamp": "2023-05-15T09:45:00Z",
+                        "reactionCount": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Effective Communication Skills",
+        "about": "Improve your communication skills and enhance your personal and professional relationships.",
+        "url": "https://example.com/communication-skills",
+        "sharedBy": "user2",
+        "categories": ["self improvement"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-14T11:30:00Z",
+        "rating": 4.2,
+        "ratingQuantity": 10,
+        "bookmarkedCount": 5,
+        "commentsQuantity": 2,
+        "comments": [
+            {
+                "user": "user1",
+                "timestamp": "2023-05-14T12:00:00Z",
+                "reactionCount": 3,
+                "replies": [
+                    {
+                        "user": "user2",
+                        "timestamp": "2023-05-14T12:15:00Z",
+                        "reactionCount": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Introduction to Web Development",
+        "about": "Get started with web development and learn the basics of HTML, CSS, and JavaScript.",
+        "url": "https://example.com/web-development",
+        "sharedBy": "user4",
+        "categories": ["technology", "programming"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-12T16:00:00Z",
+        "rating": 4.3,
+        "ratingQuantity": 18,
+        "bookmarkedCount": 6,
+        "commentsQuantity": 1,
+        "comments": [
+            {
+                "user": "user2",
+                "timestamp": "2023-05-12T16:15:00Z",
+                "reactionCount": 1,
+                "replies": []
+            }
+        ]
+    },
+    {
+        "title": "The Power of Positive Thinking",
+        "about": "Discover the benefits of positive thinking and how it can improve your overall well-being.",
+        "url": "https://example.com/positive-thinking",
+        "sharedBy": "user5",
+        "categories": ["self improvement", "psychology"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-11T13:30:00Z",
+        "rating": 4.6,
+        "ratingQuantity": 9,
+        "bookmarkedCount": 4,
+        "commentsQuantity": 0,
+        "comments": []
+    },
+    {
+        "title": "The Art of Photography",
+        "about": "Explore the world of photography and learn techniques to capture stunning images.",
+        "url": "https://example.com/photography",
+        "sharedBy": "user6",
+        "categories": ["art", "creativity"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-10T09:45:00Z",
+        "rating": 4.9,
+        "ratingQuantity": 22,
+        "bookmarkedCount": 12,
+        "commentsQuantity": 7,
+        "comments": [
+            {
+                "user": "user3",
+                "timestamp": "2023-05-10T10:00:00Z",
+                "reactionCount": 3,
+                "replies": [
+                    {
+                        "user": "user5",
+                        "timestamp": "2023-05-10T10:15:00Z",
+                        "reactionCount": 2
+                    },
+                    {
+                        "user": "user7",
+                        "timestamp": "2023-05-10T10:30:00Z",
+                        "reactionCount": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Unlocking Your Creative Potential",
+        "about": "Explore techniques to unleash your creativity and tap into your full creative potential.",
+        "url": "https://example.com/creative-potential",
+        "sharedBy": "user8",
+        "categories": ["creativity", "self improvement"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-08T11:30:00Z",
+        "rating": 4.5,
+        "ratingQuantity": 10,
+        "bookmarkedCount": 6,
+        "commentsQuantity": 1,
+        "comments": [
+            {
+                "user": "user9",
+                "timestamp": "2023-05-08T12:00:00Z",
+                "reactionCount": 3,
+                "replies": [
+                    {
+                        "user": "user10",
+                        "timestamp": "2023-05-08T12:15:00Z",
+                        "reactionCount": 1
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "Write Simply",
+        "about": "Write and express everything easily.",
+        "url": "https://example.com/writing",
+        "sharedBy": "user11",
+        "categories": ["creativity", "psychology"],
+        "language": "english",
+        "type": "article",
+        "postingTime": "2023-05-07T16:45:00Z",
+        "rating": 4.8,
+        "ratingQuantity": 14,
+        "bookmarkedCount": 8,
+        "commentsQuantity": 2,
+        "comments": [
+            {
+                "user": "user12",
+                "timestamp": "2023-05-07T17:00:00Z",
+                "reactionCount": 2,
+                "replies": [
+                    {
+                        "user": "user13",
+                        "timestamp": "2023-05-07T17:15:00Z",
+                        "reactionCount": 1
+                    }
+                ]
+            }
+        ]
+    }
+]
