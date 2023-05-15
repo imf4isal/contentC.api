@@ -1,0 +1,16 @@
+{
+    "name": "curatec.api",
+    "version": "1.0.0",
+    "description": "A platform for curating and sharing favourite content with others and see what people like us love to consume. It's platform to filter out the best content from the noise.",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "author": "Faisal",
+    "license": "ISC",
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "morgan": "^1.10.0"
+    }
+}
