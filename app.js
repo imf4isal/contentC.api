@@ -17,6 +17,20 @@ app.get('/api/v1/contents', (req, res) => {
     });
 });
 
+app.get('/api/v1/contents/:id', (req, res) => {
+    const id = req.params.id * 1;
+
+    const content = contents.find((c) => c.id === id);
+    console.log(content);
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            content,
+        },
+    });
+});
+
 app.listen(3000, () => {
     console.log('server is running...');
 });
