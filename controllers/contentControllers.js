@@ -17,10 +17,18 @@ exports.getAllContents = async (req, res) => {
     });
 };
 
-exports.getContent = (req, res) => {
-    const id = req.params.id * 1;
-    const content = contents.find((c) => c.id === id);
+exports.getContent = async (req, res) => {
+    const content = await Content.findById(req.params.id);
 
+    res.status(200).json({
+        status: 'success',
+        data: {
+            content,
+        },
+    });
+};
+
+exports.updateContent = async (req, res) => {
     res.status(200).json({
         status: 'success',
         data: {
