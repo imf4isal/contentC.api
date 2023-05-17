@@ -4,7 +4,7 @@
     "description": "A platform for curating and sharing favourite content with others and see what people like us love to consume. It's platform to filter out the best content from the noise.",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon app.js"
+        "start": "nodemon server.js"
     },
     "author": "Faisal",
     "license": "ISC",

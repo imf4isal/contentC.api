@@ -1,10 +1,13 @@
 const fs = require('fs');
+const Content = require('../models/contentModel');
 
 const contents = JSON.parse(
     fs.readFileSync(`${__dirname}/../dev-data/data/contents.json`)
 );
 
-exports.getAllContents = (req, res) => {
+exports.getAllContents = async (req, res) => {
+    const contents = await Content.find();
+
     res.status(200).json({
         status: 'success',
         result: contents.length,
