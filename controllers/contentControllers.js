@@ -35,7 +35,6 @@ exports.getAllContents = async (req, res) => {
             (match) => `$${match}`
         );
 
-        //result
         let query = Content.find(JSON.parse(queryString));
 
         //#Sorting#
@@ -52,6 +51,14 @@ exports.getAllContents = async (req, res) => {
             query = query.select('-__v');
         }
 
+        //pagination
+        const page = req.query.page * 1 || 1;
+        const limit = req.query.limit || 100;
+        const skip = (page - 1) * limit;
+
+        query = query.skip(skip).limit(limit);
+
+        //final output
         const contents = await query;
 
         res.status(200).json({
