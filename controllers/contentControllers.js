@@ -44,6 +44,14 @@ exports.getAllContents = async (req, res) => {
             query = query.sort(sortBy);
         }
 
+        //#Projecting-Limiting Fields#
+        if (req.query.fields) {
+            const fields = req.query.fields.split(',').join(' ');
+            query = query.select(fields);
+        } else {
+            query = query.select('-__v');
+        }
+
         const contents = await query;
 
         res.status(200).json({
