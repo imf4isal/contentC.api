@@ -29,10 +29,38 @@ exports.getContent = async (req, res) => {
 };
 
 exports.updateContent = async (req, res) => {
-    res.status(200).json({
-        status: 'success',
-        data: {
-            content,
-        },
-    });
+    try {
+        const content = await Content.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            {
+                new: true,
+                runValidators: true,
+            }
+        );
+        console.log(content);
+
+        res.status(200).json({
+            status: 'successfully updated',
+            data: {
+                content,
+            },
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+exports.deleteContent = async (req, res) => {
+    try {
+        const content = await Content.findByIdAndDelete(req.params.id);
+        console.log(content);
+
+        res.status(200).json({
+            status: 'successfully deleted',
+            data: null,
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
