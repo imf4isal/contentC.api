@@ -18,48 +18,71 @@ exports.createContent = async (req, res) => {
     }
 };
 
-exports.getAllContents = async (req, res) => {
-    try {
-        //#Filtering#
-        //copy object from the query object
-        const queryObj = { ...req.query };
+class Features {
+    constructor(query, queryString) {
+        this.query = query;
+        this.queryString = queryString;
+    }
+
+    filter() {
+        const queryObj = { ...this.queryString };
 
         //exclude particular field for result consistency
         const excludedFields = ['sort', 'page', 'limit', 'fields'];
         excludedFields.forEach((exField) => delete queryObj[exField]);
 
         //obj->json string to work with operators
-        let queryString = JSON.stringify(queryObj);
-        queryString = queryString.replace(
+        let queryStr = JSON.stringify(queryObj);
+        queryStr = queryStr.replace(
             /\b(gt|gte|lt|lte|in)\b/g,
             (match) => `$${match}`
         );
 
-        let query = Content.find(JSON.parse(queryString));
+        this.query = this.query.find(JSON.parse(queryStr));
 
-        //#Sorting#
-        if (req.query.sort) {
-            const sortBy = req.query.sort.split(',').join(' ');
-            query = query.sort(sortBy);
+        return this;
+    }
+
+    sort() {
+        if (this.queryString.sort) {
+            const sortBy = this.queryString.sort.split(',').join(' ');
+            this.query = this.query.sort(sortBy);
         }
 
-        //#Projecting-Limiting Fields#
-        if (req.query.fields) {
-            const fields = req.query.fields.split(',').join(' ');
-            query = query.select(fields);
+        return this;
+    }
+
+    project() {
+        if (this.queryString.fields) {
+            const fields = this.queryString.fields.split(',').join(' ');
+            this.query = this.query.select(fields);
         } else {
-            query = query.select('-__v');
+            this.query = this.query.select('-__v');
         }
 
-        //pagination
-        const page = req.query.page * 1 || 1;
-        const limit = req.query.limit || 100;
+        return this;
+    }
+
+    paginate() {
+        const page = this.queryString.page * 1 || 1;
+        const limit = this.queryString.limit || 100;
         const skip = (page - 1) * limit;
 
-        query = query.skip(skip).limit(limit);
+        this.query = this.query.skip(skip).limit(limit);
 
+        return this;
+    }
+}
+
+exports.getAllContents = async (req, res) => {
+    try {
         //final output
-        const contents = await query;
+        const contentFeatures = new Features(
+            Content.find(),
+            req.query
+        ).filter();
+
+        const contents = await contentFeatures.query;
 
         res.status(200).json({
             status: 'success',
