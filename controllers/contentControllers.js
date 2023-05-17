@@ -1,31 +1,58 @@
-const fs = require('fs');
 const Content = require('../models/contentModel');
 
-const contents = JSON.parse(
-    fs.readFileSync(`${__dirname}/../dev-data/data/contents.json`)
-);
+exports.createContent = async (req, res) => {
+    try {
+        const content = await Content.create(req.body);
+
+        res.status(200).json({
+            status: 'content successfully created.',
+            data: {
+                content,
+            },
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: 'adding new content source failed.',
+            data: error,
+        });
+    }
+};
 
 exports.getAllContents = async (req, res) => {
-    const contents = await Content.find();
+    try {
+        const contents = await Content.find();
 
-    res.status(200).json({
-        status: 'success',
-        result: contents.length,
-        data: {
-            contents,
-        },
-    });
+        res.status(200).json({
+            status: 'success',
+            result: contents.length,
+            data: {
+                contents,
+            },
+        });
+    } catch (error) {
+        res.status(404).json({
+            status: 'data can not be retrieved.',
+            data: error,
+        });
+    }
 };
 
 exports.getContent = async (req, res) => {
-    const content = await Content.findById(req.params.id);
+    try {
+        const content = await Content.findById(req.params.id);
 
-    res.status(200).json({
-        status: 'success',
-        data: {
-            content,
-        },
-    });
+        res.status(200).json({
+            status: 'success',
+            data: {
+                content,
+            },
+        });
+    } catch (error) {
+        res.status(404).json({
+            status: 'data can not be retrieved.',
+            data: error,
+        });
+    }
 };
 
 exports.updateContent = async (req, res) => {
@@ -45,20 +72,25 @@ exports.updateContent = async (req, res) => {
             },
         });
     } catch (error) {
-        console.log(error);
+        res.status(404).json({
+            status: 'data can not be updated.',
+            data: error,
+        });
     }
 };
 
 exports.deleteContent = async (req, res) => {
     try {
-        const content = await Content.findByIdAndDelete(req.params.id);
-        console.log(content);
+        await Content.findByIdAndDelete(req.params.id);
 
         res.status(200).json({
             status: 'successfully deleted',
             data: null,
         });
     } catch (error) {
-        console.log(error);
+        res.status(404).json({
+            status: 'data can not be deleted.',
+            data: error,
+        });
     }
 };
