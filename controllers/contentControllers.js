@@ -33,12 +33,10 @@ exports.updateContent = async (req, res) => {
         const content = await Content.findByIdAndUpdate(
             req.params.id,
             req.body,
-            {
-                new: true,
-                runValidators: true,
-            }
+            { new: true, runValidators: true }
         );
-        console.log(content);
+
+        console.log(req.body);
 
         res.status(200).json({
             status: 'successfully updated',
