@@ -20,7 +20,22 @@ exports.createContent = async (req, res) => {
 
 exports.getAllContents = async (req, res) => {
     try {
-        const contents = await Content.find();
+        //copy object from the query object
+        const queryObj = { ...req.query };
+
+        //exclude particular field for result consistency
+        const excludedFields = ['sort', 'page', 'limit', 'fields'];
+        excludedFields.forEach((exField) => delete queryObj[exField]);
+
+        //obj->json string to work with operators
+        let queryString = JSON.stringify(queryObj);
+        queryString = queryString.replace(
+            /\b(gt|gte|lt|lte|in)\b/g,
+            (match) => `$${match}`
+        );
+
+        //result
+        let contents = await Content.find(JSON.parse(queryString));
 
         res.status(200).json({
             status: 'success',
